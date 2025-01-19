@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script>
+        // Name control function
+        function checkName(name) {
+            if (name === "") {
+                return 1; // Name is empty
+            }
+            return 0; // Name is filled
+        }
+
+        // Age control function
+        function checkAge(age, birthYear) {
+            const currentYear = new Date().getFullYear();
+            if (currentYear - birthYear !== age) {
+                return 1; // Age and birth year do not match
+            }
+            return 0; // Age and birth year match
+        }
+
+        // Student ID control function
+        function checkStudentID(studentID) {
+            if (studentID.length !== 9) {
+                return 1; // Student ID must be 9 digits
+            }
+            if (isNaN(studentID)) {
+                return 2; // Student ID must be only numbers
+            }
+            return 0; // Student ID is valid
+        }
+
+        // Form submission handler
+        function formSubmitted(event) {
+            event.preventDefault(); // Prevent form submission (page refresh)
+
+            // Get form values
+            const name = document.getElementById("name").value;
+            const age = parseInt(document.getElementById("age").value);
+            const birthYear = new Date(document.getElementById("birthdate").value).getFullYear();
+            const studentID = document.getElementById("studentID").value;
+
+            // Check name
+            const nameCheck = checkName(name);
+            if (nameCheck === 1) {
+                alert("Name must be filled!");
+                return;
+            }
+
+            // Check age
+            const ageCheck = checkAge(age, birthYear);
+            if (ageCheck === 1) {
+                alert("Age and birthdate do not match!");
+                return;
+            }
+
+            // Check student ID
+            const studentIDCheck = checkStudentID(studentID);
+            if (studentIDCheck === 1) {
+                alert("Student ID must be 9 digits!");
+                return;
+            }
+            if (studentIDCheck === 2) {
+                alert("Student ID must be only numbers!");
+                return;
+            }
+
+            // If all conditions are met, show success message
+            const currentDate = new Date();
+            const day = currentDate.getDate();
+            const month = currentDate.getMonth() + 1;
+            const year = currentDate.getFullYear();
+            alert(`Form submitted successfully! Date: ${day}-${month}-${year}`);
+        }
+    </script>
+</head>
+<body>
+    <h2>Student Registration Form</h2>
+    <form onsubmit="formSubmitted(event)">
+        <fieldset>
+            <legend>FORM</legend>
+        <!-- Name field -->
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+        </div>
+
+        <!-- Student ID field -->
+        <div>
+            <label for="studentID">Student ID:</label>
+            <input type="text" id="studentID" name="studentID" placeholder="Enter your student ID">
+        </div>
+
+        <!-- Age field -->
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" value="0" placeholder="Enter your age">
+        </div>
+
+        <!-- Birthdate field -->
+        <div>
+            <label for="birthdate">Birthdate:</label>
+            <input type="date" id="birthdate" name="birthdate">
+        </div>
+
+        <!-- Checkboxes -->
+        <div>
+            <label for="wellcheck"> I read the assignment description well</label>
+            <input type="checkbox" id="wellcheck">
+        </div>
+        <div>
+            <label for="wellcheck2"> I asked my friends what to do.</label>
+            <input type="checkbox" id="wellcheck2">
+        </div>
+
+        <!-- Radio buttons -->
+        <div>
+            <label for="wellradio"> I read the assignment description </label>
+            <input type="radio" id="wellradio" name="read">
+        </div>
+        <div>
+            <label for="askradio"> I asked my friends what to do.</label>
+            <input type="radio" id="askradio" name="read">
+        </div>
+
+        <!-- Textarea -->
+        <div>
+            <label for="textarea"> Others</label>
+            <textarea id="textarea"></textarea>
+        </div>
+
+        <!-- Submit and Reset buttons -->
+        <div>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+      </fieldset>
+    </form>
+</body>
+</html>

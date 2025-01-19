@@ -1,0 +1,47 @@
+h1{
+    font-size:24 pt;
+    color: black;
+    text-decoration: underline;
+    font-family: tahoma, halvetica, san-serif;
+}
+em{
+    font-style:normal;
+    color:red;
+    background-color:yellow;
+    font-weight:bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+a:hover{
+        text-decoration: none;
+    }
+    
+p.centered{
+    text-indent: 3mm;
+    text-align: center;
+    text-emphasis-color: red;
+    text-emphasis-style: "*";
+    text-shadow: 2px 2px yellow;
+}
+
+
+.center-icon {
+    display: block;
+    margin: 0 auto;
+
+    
+    }
+ol{
+    border: thick solid purple;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding: 4ex;
+    width: 50%;
+    background-color: aquamarine;
+}
+.ba{
+    background-color: orange;
+    color:black;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+}
