@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Prediction Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="top-right-image">
+        <img src="logo.jpg" alt="Game Logo" style="width: 200px; height: auto; position: absolute; top: 10px; right: 10px;">
+    </div>
+    <div class="container" style="margin-top: 20vh; background: linear-gradient(to top, #4caf50, #ffeb3b, #ffffff); border-radius: 15px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+        <h1 style="font-family: 'Brush Script MT', cursive; font-size: 3.5em; color: #ffcc00; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);">Word Prediction Game</h1>
+        <div id="word-display" class="word-display" style="padding: 10px; border-radius: 8px;"></div>
+        <div class="game-info">
+            <p style="color: #000000;"><strong>Scor:</strong> <span id="score">0</span></p>
+            <p style="color: #e91e63;"><strong>Lives:</strong> <span id="lives">3</span> <span id="hearts">❤️❤️❤️</span></p>
+        </div>
+        <div class="game-area" style="display: flex; flex-direction: column; align-items: stretch; gap: 10px;">
+            <input type="text" id="guess" maxlength="1" placeholder="Enter a letter..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 10px; align-self: center;">
+            
+            
+            <button id="submit-btn" disabled style="background-color: #ff9800; color: white; border: none; padding: 10px 20px; border-radius: 5px;">Guess</button>
+            <button id="reset-btn" style="background-color: #4caf50; color: white; border: none; padding: 10px 20px; border-radius: 5px;">Reset The Game</button>
+            
+        </div>
+        <div id="word-display" class="word-display"></div>
+    </div>
+
+    <script src="Script.js"></script>
+</body>
+</html> 
